@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PathMind - Trực quan hóa thuật toán tìm đường thông minh. So sánh A*, BFS, DFS bằng animation trực quan.">
+  <title>PathMind - Trực quan hóa thuật toán tìm đường</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- HEADER -->
+    <header class="header" id="header">
+      <h1>⚡ PathMind</h1>
+      <p>Nhìn thấy cách AI suy nghĩ để tìm đường đi ngắn nhất</p>
+    </header>
+
+    <!-- CONTROLS -->
+    <div class="controls" id="controls">
+      <div class="control-group">
+        <label for="algorithm-select">Thuật toán</label>
+        <select class="select-styled" id="algorithm-select">
+          <option value="astar">A* (Thông minh)</option>
+          <option value="bfs">BFS (Lan sóng)</option>
+          <option value="dfs">DFS (Liều lĩnh)</option>
+        </select>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="control-group">
+        <label for="speed-slider">Tốc độ</label>
+        <input type="range" class="range-slider" id="speed-slider" min="1" max="10" value="6">
+        <span class="speed-value" id="speed-value">6</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <button class="btn btn-primary" id="btn-start">▶ Tìm đường</button>
+      <button class="btn btn-secondary" id="btn-maze">🎲 Tạo mê cung</button>
+      <button class="btn btn-danger" id="btn-clear">✕ Xóa hết</button>
+    </div>
+
+    <!-- INSTRUCTIONS -->
+    <div class="instructions" id="instructions">
+      <span><span class="dot dot-start"></span> Kéo thả điểm đầu</span>
+      <span><span class="dot dot-end"></span> Kéo thả điểm đích</span>
+      <span><span class="dot dot-wall"></span> Click & kéo để vẽ tường</span>
+      <span><span class="dot dot-visited"></span> Đã khám phá</span>
+      <span><span class="dot dot-path"></span> Đường đi ngắn nhất</span>
+    </div>
+
+    <!-- STATUS -->
+    <div class="status-bar" id="status-bar">Sẵn sàng. Hãy vẽ tường rồi nhấn "Tìm đường"!</div>
+
+    <!-- GRID -->
+    <div class="grid-wrapper" id="grid-wrapper">
+      <div class="grid" id="grid"></div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats" id="stats">
+      <div class="stat-item">
+        <div class="stat-value" id="stat-visited">0</div>
+        <div class="stat-label">Ô đã khám phá</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-path-length">0</div>
+        <div class="stat-label">Độ dài đường đi</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-time">0ms</div>
+        <div class="stat-label">Thời gian tính</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-algo">A*</div>
+        <div class="stat-label">Thuật toán</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
